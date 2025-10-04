@@ -1,31 +1,51 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./CartWidget.css";
 
 function CartWidget({ carrito }) {
-  const [mostrarCarrito, setMostrarCarrito] = useState(false);
-  const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+  const [open, setOpen] = useState(false);
+  const ref = useRef();
+
+  const total = carrito.reduce(
+    (acc, item) => acc + item.precio * item.cantidad,
+    0
+  );
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <div>
-      <div onClick={() => setMostrarCarrito(!mostrarCarrito)}>
-        🛒 {totalItems}
-      </div>
+    <div className="cart-widget" ref={ref}>
+      <span className="cart-icon" onClick={() => setOpen(!open)}>
+        🛒 {carrito.length}
+      </span>
 
-      {mostrarCarrito && (
-        <div>
-          <h3>Tu carrito</h3>
+      {open && (
+        <div className="cart-dropdown">
+          <h4 className="cart-title">Tu carrito</h4>
           {carrito.length === 0 ? (
-            <p>El carrito está vacío</p>
+            <p className="cart-empty">Carrito vacío</p>
           ) : (
-            <ul>
+            <>
               {carrito.map((item) => (
-                <li key={item.id}>
+                <div key={item.id} className="cart-item">
                   <img src={item.img} alt={item.nombre} />
-                  {item.nombre} - Cantidad: {item.cantidad}
-                </li>
+                  <span>
+                    {item.nombre} x {item.cantidad}
+                  </span>
+                  <p>${item.precio}</p>
+                </div>
               ))}
-            </ul>
+              <strong>Total: ${total}</strong>
+            </>
           )}
+          <button onClick={() => setOpen(false)}>Cerrar</button>
         </div>
       )}
     </div>

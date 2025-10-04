@@ -2,14 +2,14 @@ import CartWidget from "./CartWidget";
 import logo from "../assets/logo.png";
 import "./NavBar.css";
 
-function NavBar({ carrito, setCarrito }) {
+function NavBar({ carrito }) {
   return (
-    <nav>
-      <div>
+    <nav className="navbar">
+      <div className="navbar-logo">
         <img src={logo} alt="Logo Kuvika" />
       </div>
 
-      <ul>
+      <ul className="navbar-links">
         <li>
           <a href="#inicio">Inicio</a>
         </li>

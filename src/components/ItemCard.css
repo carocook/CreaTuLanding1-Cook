@@ -51,7 +51,6 @@
   background-color: #ffe07f;
 }
 
-/* Responsive para móviles */
 @media (max-width: 480px) {
   .item-card {
     max-width: 140px;

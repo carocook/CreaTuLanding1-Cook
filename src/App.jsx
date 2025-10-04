@@ -23,7 +23,7 @@ function App() {
 
       <section id="productos">
         <ItemListContainer
-          greeting="Nuestros productos"
+          greeting="Descubrí la magia de nuestras joyas"
           carrito={carrito}
           setCarrito={setCarrito}
         />

@@ -1,13 +1,17 @@
 import ItemCard from "./ItemCard";
-import anilloImg from "../assets/anillo.jpg";
-import collarImg from "../assets/collar.jpg";
-import pulseraImg from "../assets/pulsera.jpg";
+import anilloGoldImg from "../assets/anillo-gold.jpg";
+import anilloPlataImg from "../assets/anillo-plata.jpg";
+import collarGoldImg from "../assets/collar-gold.jpg";
+import collarPlataImg from "../assets/collar-plata.jpg";
+import pulseraPlataImg from "../assets/pulsera-plata.jpg";
 import "./ItemListContainer.css";
 
 const joyas = [
-  { id: 1, nombre: "Anillo de Oro", precio: 120, img: anilloImg },
-  { id: 2, nombre: "Collar de Plata", precio: 80, img: collarImg },
-  { id: 3, nombre: "Pulsera con Diamante", precio: 200, img: pulseraImg },
+  { id: 1, nombre: "Anillo Ani Gold", precio: 120, img: anilloGoldImg },
+  { id: 2, nombre: "Anillo Livy Plata", precio: 120, img: anilloPlataImg },
+  { id: 3, nombre: "Collar Elisa Gold", precio: 80, img: collarGoldImg },
+  { id: 4, nombre: "Collar Michelle Plata", precio: 80, img: collarPlataImg },
+  { id: 5, nombre: "Pulsera Ari Plata", precio: 200, img: pulseraPlataImg },
 ];
 
 function ItemListContainer({ greeting, carrito, setCarrito }) {

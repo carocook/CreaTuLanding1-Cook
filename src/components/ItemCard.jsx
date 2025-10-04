@@ -22,8 +22,8 @@ function ItemCard({ producto, carrito, setCarrito }) {
 
   return (
     <div className="item-card">
+      <img src={producto.img} alt={producto.nombre} />
       <h4>{producto.nombre}</h4>
-      <img src={producto.img} alt={producto.nombre} width="120" />
       <p>Precio: ${producto.precio}</p>
       <button onClick={agregarAlCarrito}>Agregar al carrito</button>
     </div>

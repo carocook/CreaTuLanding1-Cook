@@ -3,13 +3,22 @@ import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 
 function App() {
-  const [carrito, setCarrito] = useState([]); // Estado del carrito
+  const [carrito, setCarrito] = useState([]);
   return (
     <>
       <NavBar carrito={carrito} setCarrito={setCarrito} />
 
       <section id="inicio">
-        <p>Bienvenida a nuestra tienda!</p>
+        <h1>Bienvenida a nuestra tienda!</h1>
+        <p>
+          Kuvika Store nació como un pequeño emprendimiento con la idea de
+          compartir nuestra pasión por los accesorios que combinan estilo,
+          calidad y un toque único. Lo que empezó siendo un proyecto casero y
+          artesanal, fue creciendo gracias a la confianza de cada clienta que
+          eligió nuestras piezas. Hoy seguimos con la misma esencia: crear y
+          seleccionar productos pensados para acompañarte todos los días, con
+          diseños versátiles y detalles que marcan la diferencia.
+        </p>
       </section>
 
       <section id="productos">

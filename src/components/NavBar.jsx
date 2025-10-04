@@ -1,15 +1,19 @@
+import { useState } from "react";
 import CartWidget from "./CartWidget";
 import logo from "../assets/logo.png";
 import "./NavBar.css";
 
 function NavBar({ carrito }) {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src={logo} alt="Logo Kuvika" />
+        <a href="#inicio">
+          <img src={logo} alt="Logo Kuvika" />
+        </a>
       </div>
 
-      <ul className="navbar-links">
+      <ul className={`navbar-links ${menuOpen ? "active" : ""}`}>
         <li>
           <a href="#inicio">Inicio</a>
         </li>
@@ -24,7 +28,17 @@ function NavBar({ carrito }) {
         </li>
       </ul>
 
-      <CartWidget carrito={carrito} />
+      <div className="navbar-right">
+        <CartWidget carrito={carrito} />
+        <div
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
   );
 }

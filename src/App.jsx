@@ -22,7 +22,6 @@ function App() {
       </section>
 
       <section id="productos">
-        <h2>Productos</h2>
         <ItemListContainer
           greeting="Nuestros productos"
           carrito={carrito}

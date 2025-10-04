@@ -2,6 +2,7 @@ import ItemCard from "./ItemCard";
 import anilloImg from "../assets/anillo.jpg";
 import collarImg from "../assets/collar.jpg";
 import pulseraImg from "../assets/pulsera.jpg";
+import "./ItemListContainer.css";
 
 const joyas = [
   { id: 1, nombre: "Anillo de Oro", precio: 120, img: anilloImg },
@@ -13,7 +14,7 @@ function ItemListContainer({ greeting, carrito, setCarrito }) {
   return (
     <section>
       <h2>{greeting}</h2>
-      <div>
+      <div className="item-list">
         {joyas.map((joya) => (
           <ItemCard
             key={joya.id}
